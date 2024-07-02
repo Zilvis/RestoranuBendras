@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Reservation App</string>
+    <string name="form_name">Name</string>
+    <string name="form_email">Email</string>
+    <string name="form_phoneNumber">Phone number</string>
+    <string name="button_save_client">SAVE CLIENT</string>
+</resources>
