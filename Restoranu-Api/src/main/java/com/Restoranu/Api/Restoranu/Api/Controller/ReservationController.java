@@ -60,7 +60,12 @@ public class ReservationController {
 	@DeleteMapping("/reservations/{reservationId}")
 	public void changeStatusToCanceled(@PathVariable Long reservationId){
 		ReservationsEntity reservationsEntity = reservationRepository.findById(reservationId).get();
-        reservationsEntity.setStatus("Canceled");
-        reservationService.changeStatus(reservationsEntity, "Canceled", reservationId);
+		reservationService.changeStatus(reservationsEntity,"Canceled",reservationId);
+	}
+
+	@PutMapping("/reservations/active/{reservationId}")
+	public void changeStatusToActive(@PathVariable Long reservationId){
+		ReservationsEntity reservationsEntity = reservationRepository.findById(reservationId).get();
+		reservationService.changeStatus(reservationsEntity,"Active",reservationId);
 	}
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class ReservationServiceImpl implements ReservationService {
@@ -45,7 +46,10 @@ public class ReservationServiceImpl implements ReservationService {
 
 	@Override
 	public ReservationsEntity changeStatus(ReservationsEntity reservationsEntity, String status, Long id) {
-		reservationsEntity.setStatus(status);
+
+		if (Objects.nonNull(reservationsEntity.getStatus()) && !"".equalsIgnoreCase(reservationsEntity.getStatus())) {
+			reservationsEntity.setStatus(status);
+		}
         return reservationRepository.save(reservationsEntity);
 	}
 }
